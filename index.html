@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpus Gamelab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2><i class="fas fa-book"></i> Perpus Gamelab</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li onclick="showPage('home')" class="active"><i class="fas fa-home"></i> Beranda</li>
+                    <li onclick="showPage('books')"><i class="fas fa-book"></i> Daftar Buku</li>
+                    <li onclick="showPage('loans')"><i class="fas fa-hand-holding"></i> Peminjaman</li>
+                    <li onclick="showPage('members')"><i class="fas fa-users"></i> Informasi Anggota</li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header>
+                <h1 id="page-title">Beranda</h1>
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin Perpus</span>
+                </div>
+            </header>
+
+            <div id="home-page" class="page active">
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>Total Buku</h3>
+                        <p id="total-books">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Buku Tersedia</h3>
+                        <p id="available-books">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Sedang Dipinjam</h3>
+                        <p id="borrowed-books">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Anggota</h3>
+                        <p id="total-members">0</p>
+                    </div>
+                </div>
+                <h2>Selamat Datang di Perpus Gamelab</h2>
+                <p>Sistem sederhana untuk mengelola buku, peminjaman, dan data anggota perpustakaan.</p>
+            </div>
+
+            <div id="books-page" class="page">
+                <div class="toolbar">
+                    <h2>Daftar Buku</h2>
+                    <button onclick="showAddBookModal()" class="btn-primary">+ Tambah Buku</button>
+                </div>
+                <table id="books-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Judul Buku</th>
+                            <th>Penulis</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="loans-page" class="page">
+                <div class="toolbar">
+                    <h2>Peminjaman Buku</h2>
+                    <button onclick="showAddLoanModal()" class="btn-primary">+ Catat Peminjaman</button>
+                </div>
+                <table id="loans-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama Peminjam</th>
+                            <th>Judul Buku</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="members-page" class="page">
+                <div class="toolbar">
+                    <h2>Informasi Anggota</h2>
+                    <button onclick="showAddMemberModal()" class="btn-primary">+ Tambah Anggota</button>
+                </div>
+                <table id="members-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Alamat</th>
+                            <th>Tanggal Bergabung</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h2 id="modal-title">Tambah Data</h2>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
